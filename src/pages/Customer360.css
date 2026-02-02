@@ -1,0 +1,146 @@
+.summary-grid {
+  display: grid;
+  grid-template-columns:
+    200px     /* 顧客ID */
+    500px     /* 会社名（最长） */
+    200px     /* 決算月 */
+    200px     /* 担当 */
+    600px     /* 区分 */
+    80px;     /* ログアウト */
+
+  gap: 8px 16px;
+  align-items: center;
+}
+
+.summary-grid .item {
+  position: relative;
+  padding-right: 16px;
+}
+
+.summary-grid .item:not(:last-child)::after {
+  content: "｜";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+}
+.summary-grid .item {
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.summary-grid .company {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 900px) {
+  .summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.customer360-page {
+  min-height: 100vh;
+  background: #e6f2ff;
+}
+.customer360-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+.summary-grid .action {
+  justify-self: end;
+}
+.block {
+  border: 1px solid #ccc;
+  padding: 12px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.block1 {
+  grid-column: 1 / 3;
+}
+
+.block2 {
+  grid-column: 1 / 2;
+}
+
+.block3 {
+  grid-column: 2 / 3;
+}
+
+.block4 {
+  grid-column: 1 / 3;
+}
+
+.period {
+  padding: 4px 0;
+  cursor: pointer;
+}
+.page-footer {
+  grid-column: 1 / -1;
+  text-align: left;
+  font-size: 12px;
+  color: #888;
+  padding: 12px 0;
+}
+.v-line {
+  display: flex;
+  align-items: center;
+  color: #999;
+  padding: 0 6px;
+}
+.info-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.info-row .value {
+  color: #000;
+}
+.block3 p {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+.period-link:hover {
+  text-decoration: underline;
+}
+.period-link {
+  position: relative;
+  color: #1a73e8;
+  text-decoration: none;   /* 关掉默认下划线 */
+  padding-bottom: 2px;     /* 给线留空间 */
+}
+
+.period-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #1a73e8;
+}
+
+.employee-link {
+  display: inline-block;
+  margin-left: 6px;
+  padding-bottom: 1px;
+
+  color: #1a73e8;
+  text-decoration: none;
+  border-bottom: 1px solid #1a73e8;
+}
+
+/* .employee-link:hover {
+  opacity: 0.85;
+  border-bottom-width: 2px;
+} */

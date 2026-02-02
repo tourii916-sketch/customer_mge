@@ -1,0 +1,80 @@
+{
+  "C-00124": {
+    "basic": {
+      "customerId": "C-00124",
+      "companyName": "株式会社〇〇",
+      "fiscalMonth": 3,
+      "accountManagers": ["結城", "添田"],
+      "rank": "VIP"
+    },
+
+    "companyInfo": {
+       "companyName": "株式会社〇〇",
+       "kanaName": "",
+       "address": "",
+       "corporateNo": "XXXXXXXXXXXXX",
+
+       "invoice": {
+         "hasInvoiceNo": true,
+         "invoiceNoRegDate": "2026年01月23日"
+       },
+
+       "taxOffice": "新宿税務署",
+       "establishedDate": "2026年01月23日",
+       "capitalYen": null,
+       "fiscalClosingMonth": 3,
+       "phone": "",
+       "agent": "",
+
+       "representative": {
+         "name": "",
+         "kana": "",
+         "address": "",
+         "visa": "",
+         "expiry": null
+       },
+
+       "banks": {
+         "bank": "",
+         "branch": "",
+         "hasNetBank": false,
+         "netBankExpiry": null
+       },
+
+       "seal": "代表印",
+       "hasContract": false,
+       "payment": "电子纳付"
+    },
+
+    "business": {
+      "settlementStatus": "資料待",
+      "employees": 5,
+      "todo": 3,
+      "missingDocs": 7
+    },
+
+    "periods": {
+      "12": {
+        "period": "第12期",
+        "sales": 80000000,
+        "netIncome": 400,
+        "corporateTax": "申告済",
+        "consumptionTax": "申告済"
+      },
+      "11": {
+        "period": "第11期",
+        "sales": 80000000,
+        "netIncome": 400,
+        "corporateTax": "申告済",
+        "consumptionTax": "申告済"
+      },
+      "10": {
+        "period": "第10期",
+        "sales": 80000000,
+        "netIncome": 400,
+        "corporateTax": "申告済",
+        "consumptionTax": "申告済"
+      }
+    }
+  }
+}

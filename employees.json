@@ -1,0 +1,70 @@
+{
+  "C-00123": {
+    "E-0001": {
+        "basic": {
+            "employeeId": "E-0001",
+            "name": "王 小明",
+            "nameKana": "オウ ショウメイ"
+        },
+
+        "salary": {
+            "type": "月給",
+            "amount": 300000,
+            "payDay": 25,
+            "transportation": 15000,
+            "bankAccount": "三菱UFJ xxxx",
+            "residentTax": "特別"
+        },
+
+        "residenceCard": {
+            "status": "技術・人文知識・国際業務",
+            "expireDate": "2026-08-15",
+            "number": "AB1234567",
+            "frontImageUrl": "",
+            "backImageUrl": "",
+            "alerts": [60, 30, 7]
+        },
+
+        "yearEndAdjustment": {
+            "dependent": true,
+            "insurance": true,
+            "housingLoan": false,
+            "other": null,
+            "completed": false
+        }
+    },
+    "E-0002": {
+        "basic": {
+            "employeeId": "E-0002",
+            "name": "王 小明",
+            "nameKana": "オウ ショウメイ"
+        },
+
+        "salary": {
+            "type": "月給",
+            "amount": 300000,
+            "payDay": 25,
+            "transportation": 15000,
+            "bankAccount": "三菱UFJ xxxx",
+            "residentTax": "特別"
+        },
+
+        "residenceCard": {
+            "status": "技術・人文知識・国際業務",
+            "expireDate": "2026-08-15",
+            "number": "AB1234567",
+            "frontImageUrl": "",
+            "backImageUrl": "",
+            "alerts": [60, 30, 7]
+        },
+
+        "yearEndAdjustment": {
+            "dependent": true,
+            "insurance": true,
+            "housingLoan": false,
+            "other": null,
+            "completed": false
+        }
+    }
+  }
+}

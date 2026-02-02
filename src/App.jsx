@@ -1,34 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "../firebase"
+
+import Login from "./pages/Login"
+import SearchPage from "./pages/SearchPage"
+import Customer360 from "./pages/Customer360"
+import EmployeeList from "./pages/EmployeeList";
+import Employees from "./pages/Employees";
+import Add from "./pages/Add"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState(null);
+  const [checkingAuth, setCheckingAuth] = useState(true);
+  
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setCheckingAuth(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (checkingAuth) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login"
+          element={
+            user ? <Navigate to="/" replace /> : <Login />
+          }
+        />
+        <Route path="/"
+          element={
+            user ? <SearchPage /> : <Navigate to="/login" replace />
+          }
+        />
+        <Route
+          path="/customers/:customerId"
+          element={
+            user ? <Customer360 /> : <Navigate to="/login" replace />
+          }
+        />
+        <Route
+          path="*"
+          element={<Navigate to={user ? "/" : "/login"} replace />}
+        />
+        <Route
+          path="/customers/:customerId/employeeList"
+          element={
+            user ? <EmployeeList /> : <Navigate to="/login" replace />
+          }
+        />
+        <Route
+          path="/customers/:customerId/employeeId/employees"
+          element={
+            user ? <Employees /> : <Navigate to="/login" replace />
+          }
+        />
+        <Route path="/add"
+          element={
+            user ? <Add /> : <Navigate to="/login" replace />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
