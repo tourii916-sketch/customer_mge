@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams  } from "react-router-dom"
 import { collection, getDocs } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -11,10 +11,11 @@ function SearchPage() {
   const [employeeList, setEmployeeList] = useState([])
   const [allEmployees, setAllEmployees] = useState([])
   const navigate = useNavigate()
+  const { customerId } = useParams();
 
   useEffect(() => {
     const loadEmployees = async () => {
-      const snap = await getDocs(collection(db, "customers", "C-00123", "employees"));
+      const snap = await getDocs(collection(db, "customers", customerId, "employees"));
       const list = snap.docs.map(doc => ({
         employeeId: doc.id,
         ...doc.data().basic
@@ -52,6 +53,9 @@ function SearchPage() {
   const handleSelect = (employeeId) => {
     navigate(`/employees/${employeeId}`);
   };
+  const goAddEmployee = () => {
+    navigate(`/customers/${customerId}/employees/add`);
+  };
 
   return (
     <div className="search-page">
@@ -67,6 +71,9 @@ function SearchPage() {
 
         <button onClick={handleSearch}>検索</button>
         <button onClick={handleClear}>クリア</button>
+        <button onClick={goAddEmployee}>
+        従業員を追加
+      </button>
         <button className="logout-btn" onClick={() => {signOut(auth);}}>ログアウト</button>
       </div>
       <div className="block customer-list">

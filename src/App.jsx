@@ -9,6 +9,7 @@ import Customer360 from "./pages/Customer360"
 import EmployeeList from "./pages/EmployeeList";
 import Employees from "./pages/Employees";
 import Add from "./pages/Add"
+import EmployeeAdd from "./pages/EmployeeAdd";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -55,6 +56,10 @@ function App() {
           element={
             user ? <EmployeeList /> : <Navigate to="/login" replace />
           }
+        />
+        <Route
+          path="/customers/:customerId/employees/add"
+          element={<EmployeeAdd />}
         />
         <Route
           path="/customers/:customerId/employeeId/employees"
